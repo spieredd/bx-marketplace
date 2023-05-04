@@ -457,7 +457,7 @@ export default function Example() {
                           </div>
                           <div className="ml-4 mt-4 flex flex-shrink-0">
                             <a
-                              href={`tomail:${offer.email}`}
+                              href={`mailto:${offer.email}`}
                               type="button"
                               className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                             >
