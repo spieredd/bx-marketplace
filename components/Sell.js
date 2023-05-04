@@ -8,6 +8,8 @@ import { Timestamp } from 'firebase/firestore'
 
 export default function Request(props) {
     const [requestText, setRequestText] = useState('')
+    const [price, setPrice] = useState('')
+
     const { user } = useFirebase()
 
     const currentDate = Timestamp.now();
@@ -28,7 +30,8 @@ export default function Request(props) {
                 displayName: user.displayName,
                 photoURL: user.photoURL,
                 requestText,
-                date: currentDate
+                date: currentDate,
+                price: price
             }
 
             await addDoc(collection(firestore, 'offers'), offerData)
@@ -79,7 +82,7 @@ export default function Request(props) {
                                         <div className="mt-2">
                                             <div>
                                                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    Your offer
+                                                    Description
                                                 </label>
                                                 <div className="mt-2">
                                                     <input
@@ -90,6 +93,31 @@ export default function Request(props) {
                                                     />
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mt-4">
+                                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Price
+                                    </label>
+                                    <div className="relative mt-2 rounded-md shadow-sm">
+                                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <span className="text-gray-500 sm:text-sm">€</span>
+                                        </div>
+                                        <input
+                                            type="number"
+                                            name="price"
+                                            id="price"
+                                            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            placeholder="0.00"
+                                            aria-describedby="price-currency"
+                                            value={price}
+                                            onChange={(e) => setPrice(e.target.value)}
+                                        />
+                                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <span className="text-gray-500 sm:text-sm" id="price-currency">
+                                                EUR
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

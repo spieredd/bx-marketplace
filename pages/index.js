@@ -8,6 +8,7 @@ import { useFirebase } from '../context/firebaseContext'
 
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid'
 import {
   ChartBarSquareIcon,
   Cog6ToothIcon,
@@ -278,7 +279,7 @@ export default function Example() {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-gray-400">Start selling</div>
+                  <div className="text-xs font-semibold leading-6 text-gray-400">Start posting</div>
                   {
                     !user &&
                     <SignIn />
@@ -434,10 +435,48 @@ export default function Example() {
                   const dateString = dateObject?.toLocaleDateString('en-US')
 
                   return (
-                    <li key={offer.id}>
-                      {offer.displayName} ({offer.email}): {offer.requestText}{' '}
-                      <small>Date: {dateString}</small>
-                    </li>
+                    <>
+                      <div className="border-gray-200 px-4 py-5 sm:px-6">
+                        <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
+                          <div className="ml-4 mt-4">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0">
+                                <img
+                                  className="h-12 w-12 rounded-full"
+                                  src={offer.photoURL}
+                                  alt=""
+                                />
+                              </div>
+                              <div className="ml-4">
+                                <h3 className="text-base font-semibold leading-6 text-white">{offer.displayName}</h3>
+                                <p className="text-sm text-gray-500">
+                                  <a href="#">{offer.email}</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="ml-4 mt-4 flex flex-shrink-0">
+                            <a
+                              href={`tomail:${offer.email}`}
+                              type="button"
+                              className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            >
+                              <EnvelopeIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                              <span>Email</span>
+                            </a>
+                          </div>
+
+                        </div>
+                        <div className="mt-4">
+                          <p className="text-sm text-gray-200">{offer.requestText}</p>
+                        </div>
+                        <div className="mt-2">
+                          <span className="inline-flex items-center rounded-md bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-500 ring-1 ring-inset ring-yellow-400/20">
+                            Price: {offer.price} €
+                          </span>
+                        </div>
+                      </div>
+                    </>
                   )
                 })}
               {/* {filteredData.map((item, index) => (

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import { initializeApp } from 'firebase/app'
-import { getFirestore, getDocs, query, collection } from 'firebase/firestore'
+import { getFirestore, getDocs, query, collection, orderBy } from 'firebase/firestore'
 
 
 const FirebaseContext = createContext()
@@ -41,7 +41,7 @@ export const FirebaseProvider = ({ children }) => {
 
     const fetchRequests = async () => {
         const requestCollection = collection(firestore, 'requests')
-        const requestQuery = query(requestCollection)
+        const requestQuery = query(requestCollection, orderBy('date', 'desc'))
         const requestSnapshot = await getDocs(requestQuery)
         const requests = requestSnapshot.docs.map((doc) => ({
             id: doc.id,
@@ -52,7 +52,7 @@ export const FirebaseProvider = ({ children }) => {
 
     const fetchOffers = async () => {
         const requestCollection = collection(firestore, 'offers')
-        const requestQuery = query(requestCollection)
+        const requestQuery = query(requestCollection, orderBy('date', 'desc'))
         const requestSnapshot = await getDocs(requestQuery)
         const requests = requestSnapshot.docs.map((doc) => ({
             id: doc.id,
