@@ -16,11 +16,17 @@ export default function Request(props) {
 
     const handleSubmit = async (e) => {
 
-        props.setOpen(false)
         e.preventDefault()
         if (!user) {
             alert('You must be signed in to submit a request.')
             return
+        }
+
+        if (price == '' || requestText == '') {
+            alert('You must enter a description and a price')
+            return
+        } else {
+            props.setOpen(false)
         }
 
         try {
@@ -36,6 +42,8 @@ export default function Request(props) {
 
             await addDoc(collection(firestore, 'offers'), offerData)
             setRequestText('')
+            location.reload();
+
         } catch (error) {
             console.error('Error submitting request:', error)
         }
@@ -86,6 +94,7 @@ export default function Request(props) {
                                                 </label>
                                                 <div className="mt-2">
                                                     <input
+                                                        required
                                                         className="pl-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                         placeholder="Selling a new TV"
                                                         value={requestText}
@@ -105,6 +114,7 @@ export default function Request(props) {
                                             <span className="text-gray-500 sm:text-sm">€</span>
                                         </div>
                                         <input
+                                            required
                                             type="number"
                                             name="price"
                                             id="price"
