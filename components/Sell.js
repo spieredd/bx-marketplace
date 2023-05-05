@@ -178,7 +178,7 @@ export default function Request(props) {
                                             onChange={(e) => {
                                                 setImageFile(e.target.files[0])
                                                 console.log('Selected image file:', e.target.files[0])
-                                            }} type="file" className="hidden" accept="image/png, image/jpeg" />
+                                            }} type="file" className="hidden" />
                                         <div className="inline-block bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                                             {selectedFile ? selectedFile.name : 'Choose Photo'}
                                         </div>
