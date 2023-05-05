@@ -56,9 +56,10 @@ export default function Request(props) {
 
 
         try {
-            var imageUrl="";
+            var imageUrl=""
             if (imageFile != null) {
-                const imagePath = `images/${imageFile.name}`
+                var currentDate = new Date()
+                const imagePath = `images/${currentDate}/${imageFile.name}`
                 const imageRef = ref(storage, imagePath)
                 await uploadBytes(imageRef, imageFile)
 
