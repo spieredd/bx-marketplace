@@ -411,7 +411,7 @@ export default function Example() {
                   const dateString = dateObject?.toLocaleDateString('en-US')
 
                   return (
-                    <div className='flex items-center justify-between'>
+                    <div key={offer.uid} className='flex items-center justify-between'>
                       <div className="w-full border-gray-200 px-4 py-5 sm:px-6">
                         <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
                           <div className="ml-4 mt-4 flex items-start justify-start">
