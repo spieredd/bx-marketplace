@@ -5,8 +5,31 @@ import { collection, addDoc } from 'firebase/firestore'
 import { firestore } from '../context/firebaseContext'
 import { useFirebase } from '../context/firebaseContext'
 import { Timestamp } from 'firebase/firestore'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import SelectInput from './SelectInput'
 
 export default function Request(props) {
+    const { storage, firestore, fetchRequests, fetchOffers } = useFirebase()
+
+    const [selected, setSelected] = useState('');
+
+
+    function handleSelectedChange(newValue) {
+        setSelected(newValue);
+    }
+
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null);
+
+    function handleFileInputChange(event) {
+        const file = event.target.files[0];
+        setSelectedFile(file);
+        const label = event.target.nextElementSibling;
+        label.textContent = file ? file.name : 'Choose File';
+    }
+
+    const [imageFile, setImageFile] = useState(null)
+
     const [requestText, setRequestText] = useState('')
     const [price, setPrice] = useState('')
 
@@ -22,27 +45,43 @@ export default function Request(props) {
             return
         }
 
-        if (price == '' || requestText == '') {
+        if (price == '' || requestText == '' || selected == '') {
             alert('You must enter a description and a price')
             return
         } else {
             props.setOpen(false)
         }
 
+
         try {
+            if (imageFile != null) {
+                const imagePath = `images/${user.uid}/${imageFile.name}`
+                const imageRef = ref(storage, imagePath)
+                await uploadBytes(imageRef, imageFile)
+
+                const imageUrl = await getDownloadURL(imageRef)
+            }else{
+                const imageUrl=null
+            }
+
+
+
             const offerData = {
                 uid: user.uid,
                 email: user.email,
                 displayName: user.displayName,
                 photoURL: user.photoURL,
                 requestText,
+                imageUrl,
                 date: currentDate,
-                price: price
+                price: price,
+                category: selected
             }
 
             await addDoc(collection(firestore, 'offers'), offerData)
             setRequestText('')
-            location.reload();
+            setImageFile(null)
+            location.reload()
 
         } catch (error) {
             console.error('Error submitting request:', error)
@@ -88,7 +127,10 @@ export default function Request(props) {
                                             Want To Sell - [WTS]
                                         </Dialog.Title>
                                         <div className="mt-2">
-                                            <div>
+
+                                            <SelectInput selected={selected} onSelectedChange={handleSelectedChange} />
+
+                                            <div className='mt-2'>
                                                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Description
                                                 </label>
@@ -129,7 +171,19 @@ export default function Request(props) {
                                                 EUR
                                             </span>
                                         </div>
+
                                     </div>
+                                    <label className="mt-4 block text-gray-700 font-bold mb-2">
+                                        <input accept="image/*"
+                                            onChange={(e) => {
+                                                setImageFile(e.target.files[0])
+                                                console.log('Selected image file:', e.target.files[0])
+                                            }} type="file" className="hidden" accept="image/png, image/jpeg" />
+                                        <div className="inline-block bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                                            {selectedFile ? selectedFile.name : 'Choose Photo'}
+                                        </div>
+                                    </label>
+
                                 </div>
                                 <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                                     <button
@@ -148,6 +202,7 @@ export default function Request(props) {
                                         Cancel
                                     </button>
                                 </div>
+
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>

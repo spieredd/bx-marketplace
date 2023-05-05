@@ -7,7 +7,7 @@ import Sell from '../components/Sell'
 import { useFirebase } from '../context/firebaseContext'
 
 import { Fragment, useState, useEffect } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Dialog, Menu, Transition, Listbox } from '@headlessui/react'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid'
 import {
   ChartBarSquareIcon,
@@ -18,9 +18,7 @@ import {
   SignalIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { Bars3Icon, ChevronRightIcon, ChevronUpDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-
-
+import { Bars3Icon, ChevronRightIcon, ChevronUpDownIcon, MagnifyingGlassIcon, CheckIcon } from '@heroicons/react/20/solid'
 
 const navigation = [
   { name: 'Home', href: '/', icon: HomeIcon, current: true },
@@ -369,7 +367,7 @@ export default function Example() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2.5 w-40 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-                      
+
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -383,7 +381,7 @@ export default function Example() {
                           </a>
                         )}
                       </Menu.Item>
-                      
+
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -411,10 +409,10 @@ export default function Example() {
                   const dateString = dateObject?.toLocaleDateString('en-US')
 
                   return (
-                    <>
-                      <div className="border-gray-200 px-4 py-5 sm:px-6">
+                    <div className='flex items-center justify-between'>
+                      <div className="w-full border-gray-200 px-4 py-5 sm:px-6">
                         <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
-                          <div className="ml-4 mt-4">
+                          <div className="ml-4 mt-4 flex items-start justify-start">
                             <div className="flex items-center">
                               <div className="flex-shrink-0">
                                 <img
@@ -430,17 +428,20 @@ export default function Example() {
                                 </p>
                               </div>
                             </div>
+                            <div className="flex top-0 items-start ml-4 mt-4 flex flex-shrink-0">
+                              <a
+                                href={`mailto:${offer.email}`}
+                                type="button"
+                                target="_blank"
+                                className="relative ml-3 inline-flex items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-gray-200 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-350"
+                              >
+                                <EnvelopeIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                <span>Email</span>
+                              </a>
+                            </div>
+
                           </div>
-                          <div className="ml-4 mt-4 flex flex-shrink-0">
-                            <a
-                              href={`mailto:${offer.email}`}
-                              type="button"
-                              className="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                            >
-                              <EnvelopeIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              <span>Email</span>
-                            </a>
-                          </div>
+
 
                         </div>
                         <div className="mt-4">
@@ -450,9 +451,16 @@ export default function Example() {
                           <span className="inline-flex items-center rounded-md bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-500 ring-1 ring-inset ring-yellow-400/20">
                             Price: {offer.price} €
                           </span>
+                          <span style={{ backgroundColor: `var(--${offer.category.color})`, color: `var(--${offer.category.color})` }} className="ml-2 inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+                            Category: {offer.category.name}
+                          </span>
                         </div>
+
                       </div>
-                    </>
+                      <div className="flex justify-end items-center w-[200px] p-2 rounded">
+                        {offer.imageUrl && <img src={offer.imageUrl} alt="Uploaded" className="w-[300px] h-[150px] object-fill	rounded-md" />}
+                      </div>
+                    </div>
                   )
                 })}
               {/* {filteredData.map((item, index) => (

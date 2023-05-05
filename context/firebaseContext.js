@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, getDocs, query, collection, orderBy } from 'firebase/firestore'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 
 const FirebaseContext = createContext()
@@ -12,16 +13,22 @@ const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-
+    storageBucket: "bx-marketplace.appspot.com",
 }
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
 
+
+
 export const firestore = getFirestore(app)
 
+const storage = getStorage(app)
+
+
 export const FirebaseProvider = ({ children }) => {
+
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -62,7 +69,7 @@ export const FirebaseProvider = ({ children }) => {
     }
 
     return (
-        <FirebaseContext.Provider value={{ user, signIn, signOut: logOut, app, firestore, fetchRequests, fetchOffers }}>
+        <FirebaseContext.Provider value={{ storage, user, signIn, signOut: logOut, app, firestore, fetchRequests, fetchOffers }}>
             {children}
         </FirebaseContext.Provider>
     )
