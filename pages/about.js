@@ -18,51 +18,59 @@ const navigation = [
     { name: 'Company', href: '#' },
 ]
 const stats = [
-    { label: 'Business was founded', value: '2012' },
-    { label: 'People on the team', value: '120+' },
-    { label: 'Users on the platform', value: '250k' },
-    { label: 'Paid out to creators', value: '$70M' },
+    { label: 'Business was founded', value: '2021' },
+    { label: 'People on the team', value: '2' },
+    { label: 'Users on the platform', value: '300+' },
+    { label: 'Paid out to creators', value: '$0' },
 ]
 const values = [
     {
         name: 'Be world-class.',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+        description: 'Strive to create a world-class platform that connects students and empowers them to learn and grow from each other.',
         icon: RocketLaunchIcon,
     },
     {
         name: 'Take responsibility.',
-        description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+        description: 'Take responsibility for creating a safe and secure marketplace that protects the interests of both buyers and sellers.',
         icon: HandRaisedIcon,
     },
     {
         name: 'Be supportive.',
-        description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus voluptas blanditiis et.',
+        description: 'Provide resources and tools to help users succeed, and encourage positive interactions through user reviews and feedback.',
         icon: UserGroupIcon,
     },
     {
         name: 'Always learning.',
-        description: 'Iure sed ab. Aperiam optio placeat dolor facere. Officiis pariatur eveniet atque et dolor.',
+        description: 'Seek out feedback from users and iterate on the platform to improve the user experience and meet the changing needs of the student community.',
         icon: AcademicCapIcon,
     },
     {
         name: 'Share everything you know.',
-        description: 'Laudantium tempora sint ut consectetur ratione. Ut illum ut rem numquam fuga delectus.',
+        description: 'Facilitate conversations and connections between students who can learn from each other, and create a platform where everyone has the opportunity to contribute and benefit.',
         icon: SparklesIcon,
     },
     {
         name: 'Enjoy downtime.',
-        description: 'Culpa dolorem voluptatem velit autem rerum qui et corrupti. Quibusdam quo placeat.',
+        description: 'Create a platform that allows students to buy and sell goods and services in a way that fits their schedule and lifestyle.',
         icon: SunIcon,
     },
 ]
 const team = [
     {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
+        name: 'Flahaut Ariel',
+        role: 'Founder & CEO',
         imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        location: 'Toronto, Canada',
+            'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIPEA8QDxAPEA8VEBUPDw8QFQ8PDxAPFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ8PFysZFh0rLSstLS0rKysrKy0tKystKy0rLS0tKysrKysrOC0tLS03Ky03Ky0rKy0tKystKystK//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAABAgADBAYFBwj/xAA5EAACAQIDBQUGBQQCAwAAAAAAAQIDEQQhMQUSQVFhBjJxgZETIlKhscEUQmLR8AcVI5Jy4TOi8f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIBEBAAMAAgICAwAAAAAAAAAAAAECERIhAzFBURMiYf/aAAwDAQACEQMRAD8A90KFQTaHQyEQyIHQ5WmWRZFgwyEGRFOgiJjXAZEFDcA7oLETJcAoKFuS4DhSFuRMBmhWg3CAqiNYgyAFibo6HSGmKVEbcLbBSJpircFcDSkSxdMZdwhq3QDTHPBAgm2TBQqCiB0x0ytBTAuTGKkx0yKdDJiXDcge4AXJcCBFuS4D3ILcNyhkFChuAyGQiCmQOgoVDoKZDorQ6IohIQgaIwqCgCQBAObuEUKZ1czBFQUFOg3EuFEFiYyZWmMmBamG5WmG5FPKVjPWxajq0vQy7a2gqFNtpt2yS1Z82x/aSU5N2jbqr+RJnFiNfRNo7YVL2fuuTm3GKTSu7X1eg8NrRmmu5UUU9xtXvyPk9fbMpxUd52jLeir919DO9pTbc3J7zd97NO/iZ1eL69jNtRpRhN6SaSXVpm7C46M1Fr82iPi9TatSoqcak24Rk5Za5nZdmNt0+9OTSS3acdZPi/qXTH0FMKZkweKVSN0akaZOgiXCmA6ZZFlSHiRViGFQ1yKZBFTDcgcKETGTAYhCBXLhFCjq5GCKg3AdBQqCRTIZCBQDpmPaW1IYeDlNpW0XFvoZO0m1lhaDnrJvchHnJ6HzPamOnUm3Oe9LnwXRGZnGojW3tH2hqYqTs9yGiiuXVnOVpeZK0nwZUql1rn1yMNqJT521GjXb4+K4MM5RWqjL6mWdmrrzT1RUbJya7r8uJfhsTlfR6Ox50G+L8wU6tn9Rg+k9idtShUjSlK8JZLPus+lRdz8/YLFbrVnZ5NPk+B9q7L7VWKoRl+dJRnHinz8xWUtD2goCGNMih0Ih0RTphFQxFENwBAZMNxUEBiEuQDmA3FCdXMyCKEBkMImEgdMIqCgrkv6kYZyw8JpXjCe9JdHlc+cV5/zofZtu0PaYetCybdN2T52PiWJlnqYs3UYXbsr3PVwmyU7OWZTsqm24vd8WdNg6VuBxtbHeldeVW2ZBQl7qvbLnc5bEUN2TSWR9Ilh78jw9pbDbleKyvm+grZq9N9OTjSeiHqYOUXodXgdi7veeV72tnbxNeL2fGWqzLz7Z/F04anlLPwPo/wDTXFP27hwlTb9LHFY/BuFRrLS6O2/pZhHKdStpuxULcG5f/Dftyn6fS0MhEMjTBkMhUFBTpjIRDIBwiDEDEuAgDEBcgHMhFIdXM1xriBAcKFCiBkMhExkFHU+M9rtlfhcVOnrB/wCSm/0y4eTuj7MfN/6kTVStS3M9xOE2vG5m3pqsTqnZeFUacOqTNf8AcqNN2c02td3P6GXFRfs4xTcVupNrW1jxakqcL7tKUravNHniIl6tz063CbUo1MozV+TyfzNNVL4sjj8LShNp+ycG3k02/XkdFCDdFyzyJPTdZmYU4nbFGm7N3fJZlUdvUZO1pLrY83E0928oUot968ru76dRKFeUu9TWbeizt15GsjNYm06v7S0E1SqQ95NtXXHij6d2S2UsJhacLe/JKpUfHfaV15aHz9UHGlDK+7WjOMXpa+h9K2LjvxFGNRrdd2muGRukw5Xifb0EFCoZG3M6CIhkQMhhEMAwRUwoB0QVMKAa5AEA5i4RLhudXM9w3EQbkDjCBAdBTETCmFPc4jbeC9+tFrNt7r/5Z3O2ueNt7CpuM27K26/Hgc/JGw7eC2Wz7c9Cnkk88rFU8Cmyxuzt1NFKSPNL1Vxkq4VRXU9DCQ/xW6GfGVEldq6M2G2q0mpRs+HgWG+oPDCp38R6eCSd9SYXEuebjZ8eRqVQkmRgVKacV0kmdf2fp7uHprxfq2cnRmm7WvnZJK92drgae5ThHlHNcmdaR28/ln9c/rSMmJcJ0ec9xkyu4yYD3CImNcBgpiJjXAdMNxLhuAxBbhA5i4biJhudXM6DcS4bkD3DcS4UA6YUxLhuBZcE4qSakk09U80xUxrhXJ9osMqVRbqUYyjdJaXWv2PPhVsj3O18Lwptapv7HK0sRzPN5I7erx26hs/FJp7zil1KXWpfEuupViMNCXvWzKYwhHWMfGxIx6K58y3LH013Z28i6lWbVzJh6avdpW5aF8s2ox4uyJPbNsj06rshTyqT4XUU/m/sdKmYNl4VUaUKa4LN85PNs2JnesZDx2nZ1YmNcrTDcIsTCmVphuBamG5WmFMB7huJcNwHuG4iYbgPcglyAcMsZLmxljZczGvEidv5c6a5Nv46XMKx8jGiN5O90NG38fIK2hL+I8+9w3Gj0VtBhW0GecgJ3Gj01tF8kJiNsqnFzlZJannTmopuTSSV23kchtvabrSaTfs0/dXPqxqw92jtyeN9pKSUacZbtNLXq2+PAx4vCvvRXihNhSXsUlwbT8T1Yo8tpnlL20rHGHlYfELSWTNO/DlcbFYKMtV9mZoYGOm/JdMiL2uqV4rkadnr34TlklJPPlcx08LGLyvJ83mW7Qv7KolruO3oPkn127lbUjy+Y62pHl8zhuz+2YzppVJJTWV3+ZcMz2lPqvE9XTxbLoVtSPL6Df3SPJ/I56EuBM+niOjZdF/dIdfkOtpw6nNRlzaGc3fT6EyDXSLaUOoy2lDmczdoO8xkHKXTraMOYy2hDmcsqj6fVBjUb0t6jIOUuqWPh8QVjofEcs6jsBVeeTGQcpdX+Oh8SCcr7XqvmQZByebGV8v2GUWVeyTb4EVGz70reVisrUm+DA7rh6iNpWvKQN1PjL1YFvL90GX8zK5Sjxa8zLXx0IXu03ysBtl4LpdnnY7asaV13nyTyv1Z5eO2tKeS9yPJavzPErVd59AsVbsdtOdXvP3eEVkkebNhcswMNPR2Fi1CThJ23mt3lvcjp4s4OcLo9vYW30/8Vd2lpGo9H0l1OV6d7Dv47/EujlmjJVpXNJXKRzdiUadjFtrEblGo+m6vF5HpTdo39TjO0GP9pJQi/cjr1karGy53nIJs2p7qPVwu050tHePwvNI8LBuy8za5cTu8zqcNt+m7b8LdV7yPVw+KhUX+OcWuV8/RnAKVvAshVa0dgmPoU1fNW+TC43eb/c47B7XnB5qMv+Sv8z16PaCnK29F03o5JKSX3CY9uz/lhYLhdLorC06sbJprNZO179dSypVyvZ6aqOV/AgaU7Zbrtxtb6k3uCTt1ZnU287yS5NKOfoWxpJq6+twLHfmr+KEc5PL3fLkBRs+9fysiypTyTTin1eQFef6fVBDvPnH1YQPNdSy4X8RY1X8Lt0syzJvT1DKJULGqkn7rXHNfsZsRtOEVqnLkrmDtBjZRtTTtdXfhokeAq1wsQ9fGbTctEkun7nmVcQ2VOYjYaScriILFYBiQTfsGLAkjJiIZ35mt5iVo3i/UDTsrb9ShaMv8lP4X3kuj+x0mz9r4eq//ACKPSfuv9jhGAxNIl0r5Jh2W3tsU1SlGlUjKbdvdd7dTj2BENVriWtya8JxNEXYzYPWRqaKwm9yGEikhgGjIMmVNk3gOq7L4xSi4S3W4+9Fy71nrY96Fdu9nbwscLsHFezq03la9nfPJ5H0ByaWnDhEiSSGIkm7tdL6vxLI1ajV7wt4CXbtlZaZx0+YFF3s3O36V9wi14mS1tZ9NfmVT3XlbN6WnKL+o9Okk81Ut1s8yz2S4Rz6oDL+DXKX+0yFu8+T/ANmQDHF2yy+RG/F+Yl45/cay4WKjk+0NS9aXRKP89TybmrHVN6c3zk38zGw3Cy5ExEyXAfeAwRCUBq4nsl4Bk7DASKIwkIMNWFpNeYm6aMZHJPlkUrMKQK1CyR1KLsI/eZrMeG73kbCIFiINyMBSAYQEpT3Wj6Lgdr03TpuUnvbivlJq6Pm/E6nYs1KlbdbcXqm/oSUl71XbCd921v1b+nkW0dpxfelGK6XMFLBqaupNZ2toaI7N5O/nqRntv/GKSdqkUuEgUYztdVVLrrn5GL+3XXPkJLBSitMr5XTT+hV16Xs6vxL/AFIed7Opzl6/9EIansb8X4XyKq9OUYye9JWi3w4IEKbXF+pXtKvJUKl7d23rkVHH1SqSLahUytluS5JC3AeA5XTY4AaBF2yHsLJFDEQIu4wC1I3TR58HbI9FmGvG0vHMATBEkiQ4hVmF73kbTFh+8vA2BBAwgZACEFAq4s6PsjWe/OKjv3imlfdzT/7Oc1fmdB2TxCp17tpJwau1dcH9gS7Hd3U96Fnyve78iUqMbbz91vO13FXGWKjJ96D6xea+ZJ1YPO+enHP5ZmWRt+qHhm7eZXNK3vzhJp3irpL6lc6lvzRtw92UmJ+Kp3ecPKEgLrfph/tH9glf42n8C/1ZAMH4tX0mYdt1k6Lyeqzfiemqf8zPK7Qpqlno5rj0ZUhzk/sVMsmVlbLJiyDISTAlDQvRmofc0JgMQhChNHf1LBJIkHwfkAxRjI5X5GgWpG6aAwMKYASCrMP3rm1GHD95eBuQQbgkQDIJcDIBgVwiepsKzr00+L3fVM81GrZs92rSfKcfqgO/WFdmoxilwbV0xVhJq1tzXPJr6M04hzhfdcZcr7yS9DFHaNSPetLwi/qZZaZUpLg/J5MplF6uMYri5NseO0G1e6Xg95ryF/u6uk4Tto5ZL/1B0G9H4qf88yF/9wo85ekf3INGFcDxe0HcX/L7MJCkPAn9ipkIVoBJkIBXS1ZoIQAoJCFEYv5kQgFwjCQDz3x8RJEIRVlDvLwNyIQoPIrkQhEMtAS+xCAVouod5eK+pCAfS8P+bwM+0u5LwQCGWZeHR4m2hovMBAychCFR/9k=',
+        location: 'Palaiseau, France',
     },
+    {
+        name: 'Dumont Adrien',
+        role: 'CTO',
+        imageUrl:
+            'https://programmes.polytechnique.edu/sites/default/files/styles/medium_700/public/2023-01/b220403_0.jpg?itok=8QdByNUS',
+        location: 'Palaiseau, France',
+    }
+
     // More people...
 ]
 const benefits = [
@@ -176,7 +184,7 @@ export default function Example() {
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                src="https://static.vecteezy.com/system/resources/previews/019/046/339/original/gold-coin-money-symbol-icon-png.png"
                                 alt=""
                             />
                         </a>
@@ -212,7 +220,7 @@ export default function Example() {
                                 <span className="sr-only">Your Company</span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                    src="https://static.vecteezy.com/system/resources/previews/019/046/339/original/gold-coin-money-symbol-icon-png.png"
                                     alt=""
                                 />
                             </a>
@@ -269,10 +277,9 @@ export default function Example() {
                 {/* Header section */}
                 <div className="px-6 pt-14 lg:px-8">
                     <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
-                        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">We love creators</h2>
+                        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">BX - MarketPlace</h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-                            fugiat veniam occaecat fugiat aliqua.
+                            Welcome to BX-MarketPlace: A place where Bachelor can easily Exchange or Buy from each other.
                         </p>
                     </div>
                 </div>
@@ -282,29 +289,14 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                         <div className="grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 lg:max-w-none lg:grid-cols-2">
                             <div>
-                                <p>
-                                    Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                                    vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                                    erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                                    semper sed amet vitae sed turpis id.
-                                </p>
-                                <p className="mt-8">
-                                    Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                                    auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                                    hac adipiscing egestas.
-                                </p>
+                                
+
+
                             </div>
                             <div>
-                                <p>
-                                    Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim
-                                    eget. Est augue maecenas risus nulla ultrices congue nunc tortor. Enim et nesciunt doloremque nesciunt
-                                    voluptate.
-                                </p>
-                                <p className="mt-8">
-                                    Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                                    auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                                    hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-                                </p>
+                                
+
+
                             </div>
                         </div>
                         <dl className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
@@ -317,11 +309,11 @@ export default function Example() {
                         </dl>
                     </div>
                 </div>
-
+                
                 {/* Image section */}
                 <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
                     <img
-                        src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2894&q=80"
+                        src="https://www.telecom-paris.fr/wp-content-EvDsK19/uploads/2019/07/5ecolesIPParis.png"
                         alt=""
                         className="aspect-[9/4] w-full object-cover xl:rounded-3xl"
                     />
@@ -332,8 +324,8 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our values</h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-                            dolor cupiditate blanditiis.
+                            Give an easy for departing students to sell the items they can't bring with them to incoming or existing students. 
+                            Help out Bachelors in their daily necessities. 
                         </p>
                     </div>
                     <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
@@ -354,8 +346,8 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our team</h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Excepturi repudiandae alias ut. Totam aut facilis. Praesentium in neque vel omnis. Eos error odio. Qui
-                            fugit voluptatibus eum culpa.
+                            Our team comprises of Ariel Flahaut (BX24) and Adrien Dumont (BX25), two bachelor students at Ecole Polytechnique.
+                            We found a gap in the facilities of the bachelor and chose to fill it.
                         </p>
                     </div>
                     <ul
@@ -385,8 +377,7 @@ export default function Example() {
                             <div className="w-full flex-auto">
                                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Join our team</h2>
                                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                                    Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis
-                                    in accusamus quisquam.
+                                    If you are interested in joining the team as we expand throughout IP Paris and other campuses check this out.
                                 </p>
                                 <ul
                                     role="list"
@@ -432,7 +423,7 @@ export default function Example() {
                         <div className="space-y-8">
                             <img
                                 className="h-7"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                src="https://static.vecteezy.com/system/resources/previews/019/046/339/original/gold-coin-money-symbol-icon-png.png"
                                 alt="Company name"
                             />
                             <p className="text-sm leading-6 text-gray-300">
@@ -503,7 +494,7 @@ export default function Example() {
                         </div>
                     </div>
                     <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-                        <p className="text-xs leading-5 text-gray-400">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+                        <p className="text-xs leading-5 text-gray-400">&copy; 2023 BX-MarketPlace, Inc. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
