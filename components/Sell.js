@@ -56,14 +56,15 @@ export default function Request(props) {
 
 
         try {
+            var imageUrl="";
             if (imageFile != null) {
-                const imagePath = `images/${user.uid}/${imageFile.name}`
+                const imagePath = `images/${imageFile.name}`
                 const imageRef = ref(storage, imagePath)
                 await uploadBytes(imageRef, imageFile)
 
-                const imageUrl = await getDownloadURL(imageRef)
+                imageUrl = await getDownloadURL(imageRef)
             }else{
-                const imageUrl=null
+                imageUrl=null
             }
 
 
