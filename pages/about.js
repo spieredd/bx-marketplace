@@ -313,7 +313,7 @@ export default function Example() {
                 {/* Image section */}
                 <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
                     <img
-                        src="https://www.telecom-paris.fr/wp-content-EvDsK19/uploads/2019/07/5ecolesIPParis.png"
+                        src="https://cdn.pixabay.com/photo/2018/02/02/00/35/ecommerce-3124413_1280.png"
                         alt=""
                         className="aspect-[9/4] w-full object-cover xl:rounded-3xl"
                     />
