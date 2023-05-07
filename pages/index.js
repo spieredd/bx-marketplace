@@ -86,9 +86,7 @@ export default function Example() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  
 
   const { fetchRequests } = useFirebase()
   const [requests, setRequests] = useState([])
@@ -115,12 +113,17 @@ export default function Example() {
     fetchData()
   }, [fetchOffers])
 
-
-  const filteredData = searchTerm.trim()
-    ? activityItems.filter((item) =>
-      item.projectName.toLowerCase().includes(searchTerm.toLowerCase())
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    const filteredData = searchTerm.trim()
+    ? offers.filter((item) =>
+      item.requestText.toLowerCase().includes(searchTerm.toLowerCase())
     )
     : activityItems;
+  };
+
+
+  
 
   return (
     <div className="h-screen bg-gray-900 h-full">
@@ -323,7 +326,7 @@ export default function Example() {
             </button>
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-              <form className="flex flex-1" action="#" method="GET">
+              <form className="flex flex-1">
                 <label htmlFor="search-field" className="sr-only">
                   Search
                 </label>
@@ -339,7 +342,7 @@ export default function Example() {
                     type="search"
                     name="search"
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) =>{handleSearchChange(e)}}
                   />
                 </div>
               </form>
