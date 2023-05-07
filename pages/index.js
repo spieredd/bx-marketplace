@@ -1,5 +1,3 @@
-//homepage
-
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import SignIn from '../components/SignIn'

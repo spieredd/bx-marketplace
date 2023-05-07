@@ -69,7 +69,21 @@ const team = [
         imageUrl:
             'https://programmes.polytechnique.edu/sites/default/files/styles/medium_700/public/2023-01/b220403_0.jpg?itok=8QdByNUS',
         location: 'Palaiseau, France',
-    }
+    },
+    {
+        name: 'Elalouf Sacha',
+        role: 'CBO',
+        imageUrl:
+            'sacha.png',
+        location: 'Palaiseau, France',
+    },
+    {
+        name: 'Bensouda-Korachi Gaia',
+        role: 'CMO',
+        imageUrl:
+            'gaia.png',
+        location: 'Palaiseau, France',
+    },
 
     // More people...
 ]
