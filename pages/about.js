@@ -194,7 +194,7 @@ export default function Example() {
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <a href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-8 w-auto"
@@ -360,7 +360,7 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our team</h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Our team comprises of Ariel Flahaut (BX24) and Adrien Dumont (BX25), two bachelor students at Ecole Polytechnique.
+                            Our team comprises of 4 bachelor students at Ecole Polytechnique.
                             We found a gap in the facilities of the bachelor and chose to fill it.
                         </p>
                     </div>
@@ -427,91 +427,7 @@ export default function Example() {
                 </div>
             </main>
 
-            {/* Footer */}
-            <footer className="relative mt-32 sm:mt-40" aria-labelledby="footer-heading">
-                <h2 id="footer-heading" className="sr-only">
-                    Footer
-                </h2>
-                <div className="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
-                    <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-                        <div className="space-y-8">
-                            <img
-                                className="h-7"
-                                src="https://static.vecteezy.com/system/resources/previews/019/046/339/original/gold-coin-money-symbol-icon-png.png"
-                                alt="Company name"
-                            />
-                            <p className="text-sm leading-6 text-gray-300">
-                                Est error fuga modi error. Laborum eum nobis porro cupiditate et quo.
-                            </p>
-                            <div className="flex space-x-6">
-                                {footerNavigation.social.map((item) => (
-                                    <a key={item.name} href={item.href} className="text-gray-500 hover:text-gray-400">
-                                        <span className="sr-only">{item.name}</span>
-                                        <item.icon className="h-6 w-6" aria-hidden="true" />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-                            <div className="md:grid md:grid-cols-2 md:gap-8">
-                                <div>
-                                    <h3 className="text-sm font-semibold leading-6 text-white">Solutions</h3>
-                                    <ul role="list" className="mt-6 space-y-4">
-                                        {footerNavigation.solutions.map((item) => (
-                                            <li key={item.name}>
-                                                <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                                                    {item.name}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="mt-10 md:mt-0">
-                                    <h3 className="text-sm font-semibold leading-6 text-white">Support</h3>
-                                    <ul role="list" className="mt-6 space-y-4">
-                                        {footerNavigation.support.map((item) => (
-                                            <li key={item.name}>
-                                                <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                                                    {item.name}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="md:grid md:grid-cols-2 md:gap-8">
-                                <div>
-                                    <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
-                                    <ul role="list" className="mt-6 space-y-4">
-                                        {footerNavigation.company.map((item) => (
-                                            <li key={item.name}>
-                                                <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                                                    {item.name}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="mt-10 md:mt-0">
-                                    <h3 className="text-sm font-semibold leading-6 text-white">Legal</h3>
-                                    <ul role="list" className="mt-6 space-y-4">
-                                        {footerNavigation.legal.map((item) => (
-                                            <li key={item.name}>
-                                                <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                                                    {item.name}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-                        <p className="text-xs leading-5 text-gray-400">&copy; 2023 BX-MarketPlace, Inc. All rights reserved.</p>
-                    </div>
-                </div>
-            </footer>
+            
         </div>
     )
 }
