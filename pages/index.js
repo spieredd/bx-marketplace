@@ -23,7 +23,7 @@ import { Bars3Icon, ChevronRightIcon, ChevronUpDownIcon, MagnifyingGlassIcon, Ch
 const navigation = [
   { name: 'Home', href: '/', icon: HomeIcon, current: true },
   { name: 'About', href: '/about', icon: SignalIcon, current: false },
-  { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: false },
+  // { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: false },
 ]
 const teams = [
   { id: 1, name: 'Planetaria', href: '#', initial: 'P', current: false },
@@ -84,7 +84,7 @@ export default function Example() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  
+
 
   const { fetchRequests } = useFirebase()
   const [requests, setRequests] = useState([])
@@ -114,14 +114,14 @@ export default function Example() {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     const filteredData = searchTerm.trim()
-    ? offers.filter((item) =>
-      item.requestText.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    : activityItems;
+      ? offers.filter((item) =>
+        item.requestText.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      : activityItems;
   };
 
 
-  
+
 
   return (
     <div className="h-screen bg-gray-900 h-full">
@@ -221,6 +221,7 @@ export default function Example() {
                             </>
                           )}
                         </li>
+                        {user &&
                         <li className="-mx-6 mt-auto">
                           <a
                             href="#"
@@ -228,13 +229,16 @@ export default function Example() {
                           >
                             <img
                               className="h-8 w-8 rounded-full bg-gray-800"
-                              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                              src={user.photoURL}
                               alt=""
                             />
                             <span className="sr-only">Your profile</span>
-                            <span aria-hidden="true">Adrien Dumont</span>
+                            <span aria-hidden="true">
+                              <p>{user.displayName}</p>
+                            </span>
                           </a>
                         </li>
+                        }
                       </ul>
                     </nav>
                   </div>
@@ -340,7 +344,7 @@ export default function Example() {
                     type="search"
                     name="search"
                     value={searchTerm}
-                    onChange={(e) =>{handleSearchChange(e)}}
+                    onChange={(e) => { handleSearchChange(e) }}
                   />
                 </div>
               </form>

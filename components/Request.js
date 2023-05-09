@@ -33,6 +33,8 @@ export default function Request(props) {
 
             await addDoc(collection(firestore, 'requests'), requestData)
             setRequestText('')
+            location.reload()
+
         } catch (error) {
             console.error('Error submitting request:', error)
         }

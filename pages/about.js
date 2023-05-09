@@ -13,10 +13,9 @@ import {
 } from '@heroicons/react/20/solid'
 
 const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'Settings', href: '/' },
+
 ]
 const stats = [
     { label: 'Business was founded', value: '2021' },
@@ -85,8 +84,6 @@ const team = [
             'gaia.png',
         location: 'Palaiseau, France',
     },
-
-    // More people...
 ]
 const benefits = [
     'Competitive salaries',
@@ -191,7 +188,6 @@ export default function Example() {
 
     return (
         <div className="bg-gray-900">
-            {/* Header */}
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
@@ -222,8 +218,8 @@ export default function Example() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold leading-6 text-white">
-                            Log in <span aria-hidden="true">&rarr;</span>
+                        <a target="_blank" href="https://www.buymeacoffee.com/bxmarketplace" className="text-sm font-semibold leading-6 text-white">
+                            Buy me a coffee
                         </a>
                     </div>
                 </nav>

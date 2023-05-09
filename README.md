@@ -1,5 +1,11 @@
 # BX-marketplace
 
+## Team members:
+
+- Adrien Dumont
+- Sacha Elalouf
+
+
 ## Features:
 - Add an offer of something you want to sell (Want To Sell/WTS)
 - Add a request of something you want to buy (Want To Buy/WTB)
