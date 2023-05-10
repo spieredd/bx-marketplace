@@ -54,6 +54,7 @@ const PhoneForm = () => {
             <label>
                 Phone Number:
                 <input
+                required
                     className='text-gray-400'
                     type="tel"
                     value={phoneNumber}
