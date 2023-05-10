@@ -39,60 +39,58 @@ export default function Request(props) {
     const currentDate = Timestamp.now();
 
     const handleSubmit = async (e) => {
-
-        e.preventDefault()
+        e.preventDefault();
+      
         if (!user) {
-            alert('You must be signed in to submit a request.')
-            return
+          alert('You must be signed in to submit a request.');
+          return;
         }
-
-        if (price == '' || requestText == '' || selected == '') {
-            alert('You must enter a description and a price')
-            return
-        } else {
-            props.setOpen(false)
+      
+        if (price === '' || requestText === '' || selected === '') {
+          alert('You must enter a description and a price.');
+          return;
         }
-
-
+      
+        props.setOpen(false);
+      
         try {
-            var imageUrl = ""
-            if (imageFile != null) {
-                var currentDate = new Date()
-                const imagePath = `images/${currentDate}/${imageFile.name}`
-                const imageRef = ref(storage, imagePath)
-                await uploadBytes(imageRef, imageFile)
-
-                imageUrl = await getDownloadURL(imageRef)
-            } else {
-                imageUrl = null
-            }
-
-            var encodedName = encodeURIComponent(user.displayName);
-            var profileURL = `/profile/${encodedName}`;
-
-            const offerData = {
-                uid: user.uid,
-                email: user.email,
-                displayName: user.displayName,
-                photoURL: user.photoURL,
-                requestText,
-                imageUrl,
-                date: currentDate,
-                price: price,
-                category: selected,
-                profileURL: profileURL
-            }
-
-            await addDoc(collection(firestore, 'offers'), offerData)
-            setRequestText('')
-            setImageFile(null)
-            setSelectedFile(null)
-            location.reload()
-
+          let imageUrl = null;
+          let currentDate = null;
+      
+          if (selectedFile !== null) {
+            currentDate = new Date();
+            const imagePath = `images/${currentDate}/${imageFile.name}`;
+            const imageRef = ref(storage, imagePath);
+            await uploadBytes(imageRef, imageFile);
+            imageUrl = await getDownloadURL(imageRef);
+          }
+      
+          const encodedName = encodeURIComponent(user.displayName);
+          const profileURL = `/profile/${encodedName}`;
+      
+          const offerData = {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+            requestText,
+            imageUrl,
+            date: currentDate || Timestamp.now(),
+            price: price,
+            category: selected,
+            profileURL: profileURL,
+          };
+      
+          await addDoc(collection(firestore, 'offers'), offerData);
+          setRequestText('');
+          setImageFile(null);
+          setSelectedFile(null);
+          location.reload();
         } catch (error) {
-            console.error('Error submitting request:', error)
+          console.error('Error submitting request:', error);
         }
-    }
+      };
+      
 
 
     const cancelButtonRef = useRef(null)
