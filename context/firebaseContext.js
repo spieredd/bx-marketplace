@@ -7,10 +7,6 @@ import { setDoc, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { getDoc } from 'firebase/firestore';
 
-
-
-
-
 export const FirebaseContext = createContext()
 
 const getFirestoreInstance = () => getFirestore(app);

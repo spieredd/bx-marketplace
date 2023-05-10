@@ -183,7 +183,7 @@ const footerNavigation = {
     ],
 }
 
-export default function Example() {
+export default function About() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
@@ -300,12 +300,12 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                         <div className="grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 lg:max-w-none lg:grid-cols-2">
                             <div>
-                                
+
 
 
                             </div>
                             <div>
-                                
+
 
 
                             </div>
@@ -320,7 +320,7 @@ export default function Example() {
                         </dl>
                     </div>
                 </div>
-                
+
                 {/* Image section */}
                 <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
                     <img
@@ -335,8 +335,8 @@ export default function Example() {
                     <div className="mx-auto max-w-2xl lg:mx-0">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our values</h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300">
-                            Give an easy for departing students to sell the items they can't bring with them to incoming or existing students. 
-                            Help out Bachelors in their daily necessities. 
+                            Give an easy for departing students to sell the items they can't bring with them to incoming or existing students.
+                            Help out Bachelors in their daily necessities.
                         </p>
                     </div>
                     <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
@@ -401,11 +401,7 @@ export default function Example() {
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="mt-10 flex">
-                                    <a href="#" className="text-sm font-semibold leading-6 text-indigo-400">
-                                        See our job postings <span aria-hidden="true">&rarr;</span>
-                                    </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -424,7 +420,7 @@ export default function Example() {
                 </div>
             </main>
 
-            
+
         </div>
     )
 }
