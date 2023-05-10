@@ -13,8 +13,10 @@ Not connected:
 - Search items in the offers via the searchbar
 - Connect to the website via Google Authentification
 - Click on the persons profile to see their phone number and email
-- (This feature does not work properly because of a dependency conflict but you can click on 
-each image and then click on the zoom button to see them in big, if you don't click on the zoom button it keeps loading)
+- (This feature does not work properly on my local machine because of a dependency conflict but you can click on 
+each image and then click on the zoom button to see them in big, if you don't click on the zoom button it keeps loading
+However it works on the deployed website: https://bx-marketplace.vercel.app/)
+
 
 Connected:
 - The first time you signed up you will have to enter a phone number
