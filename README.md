@@ -62,4 +62,4 @@ However, other functionalities arise once connected. Indeed, you can start posti
 When selling an item, you are required to describe it, give a price and add a picture, which will then be posted on the website for all the other users to see. Once connected you have also the possibility to access the settings tab and you can also pay via paypal.
 Although it is an online website that anyone can access, we can at all times easily delete announcements that are inappropriate.
 
-Look at the public/example.png to see how the webpage should look like  - In case of any errors contact at adrien.dumont@polytechnique.edu
+Look at the deployed website: https://bx-marketplace.vercel.app/ or at the public/example.png to see how the webpage should look like  - In case of any errors to run the app, contact at adrien.dumont@polytechnique.edu
