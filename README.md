@@ -23,13 +23,21 @@ Connected:
 - you can request some items
 - you can buy some items via Paypal
 
-## Run the project locally:
+## Run the project locally: 
 
 1. Install all the dependencies:
 
 ```npm install```
 
-2. Run the project:
+2. Set up the ```.env.local```file with the different values below:
+
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyDjZSknrvvsJlQ6Pa5sG9ADt8J4G92IDso
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=bx-marketplace.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=bx-marketplace
+PAYPAL_CLIENT_ID=AdKzNwtv0EiOh_CphFWRqpeQcwm2q8-fxyHzlXg78JwJ9dJMIXLdyIXYB2wrIeneA2RvEobdh-LUAPyW
+PAYPAL_CLIENT_SECRET=AdKzNwtv0EiOh_CphFWRqpeQcwm2q8-fxyHzlXg78JwJ9dJMIXLdyIXYB2wrIeneA2RvEobdh-LUAPyW
+
+3. Run the project:
 
 ```npm run dev```
 
@@ -53,3 +61,5 @@ You can also click on the sellers name to have all their information (name+phone
 However, other functionalities arise once connected. Indeed, you can start posting WTS (want to sell) or WTB (want to buy) announcements.
 When selling an item, you are required to describe it, give a price and add a picture, which will then be posted on the website for all the other users to see. Once connected you have also the possibility to access the settings tab and you can also pay via paypal.
 Although it is an online website that anyone can access, we can at all times easily delete announcements that are inappropriate.
+
+Look at the public/example.png to see how the webpage should look like  - In case of any errors contact at adrien.dumont@polytechnique.edu
