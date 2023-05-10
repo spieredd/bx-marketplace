@@ -456,7 +456,7 @@ export default function Example() {
                                 <h3 className="text-base font-semibold leading-6 text-white">{offer.displayName}</h3>
                               </a>
                               <p className="text-sm text-gray-500">
-                                <a href={`mailto:${offfer.email}`}>{offer.email}</a>
+                                <a href={`mailto:${offer.email}`}>{offer.email}</a>
                               </p>
                             </div>
                           </div>
