@@ -26,8 +26,7 @@ export default function Request(props) {
     function handleFileInputChange(event) {
         const file = event.target.files[0];
         setSelectedFile(file);
-        const label = event.target.nextElementSibling;
-        label.textContent = file ? file.name : 'Choose File';
+        console.log(file)
     }
 
     const [imageFile, setImageFile] = useState(null)
@@ -56,7 +55,7 @@ export default function Request(props) {
 
 
         try {
-            var imageUrl=""
+            var imageUrl = ""
             if (imageFile != null) {
                 var currentDate = new Date()
                 const imagePath = `images/${currentDate}/${imageFile.name}`
@@ -64,11 +63,12 @@ export default function Request(props) {
                 await uploadBytes(imageRef, imageFile)
 
                 imageUrl = await getDownloadURL(imageRef)
-            }else{
-                imageUrl=null
+            } else {
+                imageUrl = null
             }
 
-
+            var encodedName = encodeURIComponent(user.displayName);
+            var profileURL = `/profile/${encodedName}`;
 
             const offerData = {
                 uid: user.uid,
@@ -79,12 +79,14 @@ export default function Request(props) {
                 imageUrl,
                 date: currentDate,
                 price: price,
-                category: selected
+                category: selected,
+                profileURL: profileURL
             }
 
             await addDoc(collection(firestore, 'offers'), offerData)
             setRequestText('')
             setImageFile(null)
+            setSelectedFile(null)
             location.reload()
 
         } catch (error) {
@@ -97,7 +99,7 @@ export default function Request(props) {
 
     return (
         <Transition.Root show={props.open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={props.setOpen}>
+            <Dialog as="div" className="relative z-50" initialFocus={cancelButtonRef} onClose={props.setOpen}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -110,7 +112,7 @@ export default function Request(props) {
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
 
-                <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="fixed inset-0 z-10 overflow-y-aut z-50">
                     <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                         <Transition.Child
                             as={Fragment}
@@ -177,16 +179,34 @@ export default function Request(props) {
                                         </div>
 
                                     </div>
-                                    <label className="mt-4 block text-gray-700 font-bold mb-2">
-                                        <input accept="image/*"
-                                            onChange={(e) => {
-                                                setImageFile(e.target.files[0])
-                                                console.log('Selected image file:', e.target.files[0])
-                                            }} type="file" className="hidden" />
-                                        <div className="inline-block bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                                            {selectedFile ? selectedFile.name : 'Choose Photo'}
-                                        </div>
-                                    </label>
+                                    {
+                                        !selectedFile &&
+                                        <label className="mt-6 cursor-pointer relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-6 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="mx-auto h-12 w-12 text-gray-400">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                            </svg>
+
+                                            <span className="mt-2 block text-sm font-bold text-gray-400">Upload an image</span>
+                                            <input accept="image/*"
+                                                onChange={(e) => {
+                                                    setImageFile(e.target.files[0])
+                                                    console.log('Selected image file:', e.target.files[0])
+                                                    handleFileInputChange(e)
+                                                }} type="file" className="hidden" />
+                                        </label>
+                                    }
+                                    {
+                                        selectedFile &&
+                                        <label className="rounded-md text-gray-500 text-sm mt-6 py-4 cursor-pointer block pl-4 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            <p>Selected Image: <span className='font-bold'>{selectedFile.name}</span></p>
+                                            <input accept="image/*"
+                                                onChange={(e) => {
+                                                    setImageFile(e.target.files[0])
+                                                    console.log('Selected image file:', e.target.files[0])
+                                                    handleFileInputChange(e)
+                                                }} type="file" className="hidden" />
+                                        </label>
+                                    }
 
                                 </div>
                                 <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
@@ -200,7 +220,11 @@ export default function Request(props) {
                                     <button
                                         type="button"
                                         className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                                        onClick={() => props.setOpen(false)}
+                                        onClick={() => {
+                                            props.setOpen(false)
+                                            setSelectedFile(null)
+                                        }
+                                        }
                                         ref={cancelButtonRef}
                                     >
                                         Cancel
