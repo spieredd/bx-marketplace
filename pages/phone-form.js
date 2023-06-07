@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useFirebase } from '../context/firebaseContext';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore'; 
+import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Link from "next/link"
 import ProtectedRoute from '../components/ProtectedRoute'
 
 const PhoneForm = () => {
-    const { user, firestore, auth, setUser } = useFirebase();  
+    const { user, firestore, auth, setUser } = useFirebase();
     const [phoneNumber, setPhoneNumber] = useState('');
     const [loading, setLoading] = useState(true);
     const router = useRouter();
