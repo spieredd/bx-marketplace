@@ -52,7 +52,7 @@ export default function Profile() {
                 <img className='rounded-full' src={userInfo.photoURL} alt="" />
                 <div className='text-center'>
                   <h1 className="text-xl font-bold mb-4">{userInfo.displayName}</h1>
-                  <p>Email: <a href={`mailto${userInfo.email}`}>{userInfo.email}</a></p>
+                  <p>Email: <a href={`mailto:${userInfo.email}`} target="_blank">{userInfo.email}</a></p>
                   <p>Phone Number: {userInfo.phoneNumber}</p>
                 </div>
                 <Link href="/">

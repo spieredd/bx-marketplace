@@ -467,7 +467,7 @@ export default function Home() {
                           </div>
                           {user &&
                             <div className='mt-1'>
-                              <PayPalButton total={offer.price} />
+                              <PayPalButton total={offer.price} className="z-0" />
                             </div>
                           }
 
