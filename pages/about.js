@@ -19,7 +19,7 @@ const navigation = [
 ]
 const stats = [
     { label: 'Business was founded', value: '2021' },
-    { label: 'People on the team', value: '2' },
+    { label: 'People on the team', value: '4' },
     { label: 'Users on the platform', value: '300+' },
     { label: 'Paid out to creators', value: '$0' },
 ]
