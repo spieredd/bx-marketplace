@@ -104,7 +104,7 @@ const PhoneForm = () => {
                 htmlFor="code"
                 className="block text-sm font-medium leading-6 text-white"
               >
-                Enter Code
+                Enter Code to verify that you are a student of École Polytechnique
               </label>
               <div className="mt-2">
                 <input
