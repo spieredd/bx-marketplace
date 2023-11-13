@@ -465,11 +465,11 @@ export default function Home() {
                           <div className="inline-flex items-center rounded-md bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-500 ring-1 ring-inset ring-yellow-400/20">
                             Price: {offer.price} €
                           </div>
-                          {user &&
+                          {/* {user &&
                             <div className='mt-1'>
                               <PayPalButton total={offer.price} className="z-0" />
                             </div>
-                          }
+                          } */}
 
 
                         </div>
