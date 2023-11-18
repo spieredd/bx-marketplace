@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { useFirebase } from '../../context/firebaseContext'
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import Link from 'next/link'
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useFirebase } from "../../context/firebaseContext";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import Link from "next/link";
 
 export default function Profile() {
-  const { firestore } = useFirebase()
+  const { firestore } = useFirebase();
 
   const router = useRouter();
   const encodedName = router.query.name;
@@ -14,12 +14,12 @@ export default function Profile() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchUser()
+    fetchUser();
   }, [encodedName]);
 
   const fetchUser = async () => {
     try {
-      const usersRef = collection(firestore, 'users');
+      const usersRef = collection(firestore, "users");
       const q = query(usersRef, where("displayName", "==", name));
 
       const querySnapshot = await getDocs(q);
@@ -27,10 +27,10 @@ export default function Profile() {
       if (!querySnapshot.empty) {
         setUserInfo(querySnapshot.docs[0].data());
       } else {
-        console.log('No such user!');
+        console.log("No such user!");
       }
     } catch (error) {
-      console.log('Error getting user:', error);
+      console.log("Error getting user:", error);
     } finally {
       setLoading(false);
     }
@@ -44,24 +44,38 @@ export default function Profile() {
     return <p>No such user!</p>;
   }
 
-
   return (
     <>
-          <main className="py-10">
-              <div className='px-4 sm:px-6 lg:px-8 flex items-center justify-center h-screen flex-col gap-10'>
-                <img className='rounded-full' src={userInfo.photoURL} alt="" />
-                <div className='text-center'>
-                  <h1 className="text-xl font-bold mb-4">{userInfo.displayName}</h1>
-                  <p>Email: <a href={`mailto:${userInfo.email}`} target="_blank">{userInfo.email}</a></p>
-                  <p>Phone Number: {userInfo.phoneNumber}</p>
-                </div>
-                <Link href="/">
-                  <p className="text-sm text-blue-200 underline">Go back Home</p>
-                  </Link>
-              </div>
-          </main>
+      <main className="py-10">
+        <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-center h-screen flex-col gap-10">
+          <img className="rounded-full" src={userInfo.photoURL} alt="" />
+          <div className="text-center">
+            <h1 className="text-xl font-bold mb-4">{userInfo.displayName}</h1>
+            <p>
+              Email:{" "}
+              <a
+                href={`mailto:${userInfo.email}`}
+                target="_blank"
+                className="text-blue-200 underline"
+              >
+                {userInfo.email}
+              </a>
+            </p>
+            <p>
+              Phone Number:{" "}
+              <a
+                href={`tel:${userInfo.phoneNumber}`}
+                className="underline text-blue-200 cursor-pointer"
+              >
+                {userInfo.phoneNumber}
+              </a>
+            </p>
+          </div>
+          <Link href="/">
+            <p className="text-sm text-blue-200 underline">Go back Home</p>
+          </Link>
+        </div>
+      </main>
     </>
-  )
+  );
 }
-
-
