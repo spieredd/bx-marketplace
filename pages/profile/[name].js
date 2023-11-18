@@ -12,10 +12,19 @@ export default function Profile() {
   const name = decodeURIComponent(encodedName);
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [userOffers, setUserOffers] = useState([]);
 
   useEffect(() => {
-    fetchUser();
+    if (encodedName) {
+      fetchUser();
+    }
   }, [encodedName]);
+
+  useEffect(() => {
+    if (userInfo) {
+      fetchUserOffers();
+    }
+  }, [userInfo]);
 
   const fetchUser = async () => {
     try {
@@ -36,6 +45,22 @@ export default function Profile() {
     }
   };
 
+  const fetchUserOffers = async () => {
+    if (!userInfo) return; // Guard clause to ensure userInfo is not undefined
+
+    try {
+      const offersRef = collection(firestore, "offers");
+      const q = query(offersRef, where("email", "==", userInfo.email)); // Use userInfo.email directly
+
+      const querySnapshot = await getDocs(q);
+
+      const offers = querySnapshot.docs.map((doc) => doc.data());
+      setUserOffers(offers);
+    } catch (error) {
+      console.error("Error getting user offers:", error);
+    }
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -47,7 +72,7 @@ export default function Profile() {
   return (
     <>
       <main className="py-10">
-        <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-center h-screen flex-col gap-10">
+        <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-center h-[60vh] flex-col gap-10">
           <img className="rounded-full" src={userInfo.photoURL} alt="" />
           <div className="text-center">
             <h1 className="text-xl font-bold mb-4">{userInfo.displayName}</h1>
@@ -75,6 +100,22 @@ export default function Profile() {
             <p className="text-sm text-blue-200 underline">Go back Home</p>
           </Link>
         </div>
+        <section className="px-4 sm:px-6 lg:px-8 flex items-center flex-col">
+          <h2 className="text-center mb-4 font-medium">User's Offers</h2>
+          {userOffers.map((offer) => (
+            <div
+              key={offer.id}
+              className="border-gray-500 border-[0.5px] flex justify-between gap-8 px-6 py-4 rounded-lg "
+            >
+              <img className="w-24" src={offer.imageUrl} alt={offer.name} />
+              <div className="flex items-end flex-col gap-2">
+                <h3 className="text-sm">{offer.requestText}</h3>
+                <p className="text-sm border-[0.5px] rounded border-gray-600 px-2">{offer.price}€</p>
+              </div>
+              {/* Other offer details */}
+            </div>
+          ))}
+        </section>
       </main>
     </>
   );
